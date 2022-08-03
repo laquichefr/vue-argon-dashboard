@@ -43,14 +43,14 @@
         if (window.location.hostname == 'localhost') {
           return "https://"+this.bucket+".s3.eu-west-3.amazonaws.com/images/"
         }else {
-          return "/images/"
+          return "https://d1dblscpuayvcs.cloudfront.net/images/"
         }
       },
       prefixthumb(){
         if (window.location.hostname == 'localhost') {
           return "https://"+this.bucket+".s3.eu-west-3.amazonaws.com/thumbnails/thumbnail_"
         }else {
-          return "/thumbnails/thumbnail_"
+          return "https://d1dblscpuayvcs.cloudfront.net/thumbnails/thumbnail_"
         }
       }
     },
