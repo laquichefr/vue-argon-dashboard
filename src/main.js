@@ -1,13 +1,24 @@
-import { createApp } from "vue";
-import App from "./App.vue";
-import store from "./store";
-import router from "./router";
-import "./assets/css/nucleo-icons.css";
-import "./assets/css/nucleo-svg.css";
-import ArgonDashboard from "./argon-dashboard";
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { Amplify } from 'aws-amplify'
+import "@aws-amplify/ui-vue/styles.css";
+import './assets/main1.css'
 
-const appInstance = createApp(App);
-appInstance.use(store);
-appInstance.use(router);
-appInstance.use(ArgonDashboard);
-appInstance.mount("#app");
+Amplify.configure({
+    Auth: {
+
+        // REQUIRED - Amazon Cognito Region
+        region: 'eu-west-3',
+
+        // OPTIONAL - Amazon Cognito User Pool ID
+        userPoolId: 'eu-west-3_0YGMn2nrN',
+
+        // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
+        userPoolWebClientId: 'hp23kcjb0mee8h0n701mefjij',
+    }
+})
+
+const app = createApp(App);
+app.use(router)
+app.mount('#app')
